@@ -10,7 +10,8 @@ RUN apt-get --quiet update \
 
 # Set customizable env vars defaults.
 #ENV GRAILS_VERSION 2.5.6
-ENV GRAILS_VERSION ${grails_version}
+ARG grails_version=2.5.6
+ENV GRAILS_VERSION=$grails_version
 
 # Install Grails
 WORKDIR /usr/lib/jvm
@@ -28,4 +29,4 @@ RUN mkdir /app
 WORKDIR /app
 
 # Set Default Behavior
-ENTRYPOINT ["grails"]
+#ENTRYPOINT ["grails"]
